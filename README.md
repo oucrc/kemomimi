@@ -1,1 +1,1 @@
-"# kemomimi" 
+# kemomimi
