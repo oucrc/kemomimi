@@ -1,0 +1,25 @@
+type: object
+properties:
+  private_item_id:
+    type: string
+    description: 私物のユニークID
+  name:
+    type: string
+    description: 製品名
+  owner_id:
+    type: string
+    description: 所有者ID
+  post_grad_treat_id:
+    type: string
+    description: 卒業後の処理ID
+  model_number:
+    type: string
+    description: 型番
+  is_remaining:
+    type: boolean
+    description: 現存しているか
+  remarks:
+    type: string
+    description: 備考欄
+required:
+  - private_item_id
