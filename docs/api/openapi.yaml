@@ -31,8 +31,12 @@ tags:
 paths:
   /public_items:
     $ref: "./paths/public_items.yaml#/public_items"
+  /public_items/{public_item_id}:
+    $ref: "./paths/public_items.yaml#/public_items-{public_item_id}"
   /private_items:
     $ref: "./paths/private_items.yaml#/private_items"
+  /private_items/{private_item_id}:
+    $ref: "./paths/private_items.yaml#/private_items-{private_item_id}"
 components:
   schemas:
     $ref: "./schemas/index.yaml"
