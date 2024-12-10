@@ -1,0 +1,19 @@
+PublicItem:
+  $ref: "./public_item.yaml"
+# PrivateItem:
+
+# PostGradTreat:
+
+# Product:
+
+# Category:
+
+# ProductCategory:
+
+# User:
+
+# MainUserPublicItem:
+
+# PurchaseRequest:
+
+# PurchaseRequestStatus:
