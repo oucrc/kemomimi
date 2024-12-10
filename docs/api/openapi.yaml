@@ -5,27 +5,27 @@ info:
   description: 備品管理システムのREST API仕様書です。
 
 tags:
-  - name: public items
+  - name: PublicItems
     description: 備品
-  - name: public items-users
+  - name: PublicItems-MainUser
     description: 備品ユーザー
-  - name: private items
+  - name: PrivateItems
     description: 私物
-  - name: graduation
-    description: 卒業関連
-  - name: products
+  - name: PostGradTreat
+    description: 卒業後の私物の処理
+  - name: Products
     description: 製品
-  - name: categories
+  - name: Categories
     description: 分類
-  - name: products-categories
+  - name: Products-Categories
     description: 製品分類
-  - name: purchase requests
+  - name: PurchaseRequests
     description: 購入申請
-  - name: purchase requests status
+  - name: PurchaseRequestsStatus
     description: 購入申請状態
-  - name: users
+  - name: Users
     description: 部員
-  - name: auth
+  - name: Auth
     description: 認証
 
 paths:
