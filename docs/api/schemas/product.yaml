@@ -13,8 +13,9 @@ properties:
     type: string
     description: 商品のURL
   categiries:
-    type: object
-    $ref: "./category.yaml"
+    type: array
+    items:
+      $ref: "./category.yaml"
   main_users:
     type: array
     items:
