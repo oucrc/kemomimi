@@ -3,6 +3,36 @@ public_items:
     tags:
       - PublicItems
     summary: 備品一覧取得
+    parameters:
+      - in: query
+        name: sort
+        description: ソート対象のフィールド名
+        schema:
+          type: string
+          enum:
+            - public_item_id
+            - cost
+            - purchase_date
+            - expiration_date
+            - purchase_request_id
+        required: false
+      - in: query
+        name: filter
+        description: フィルター対象のフィールド名
+        schema:
+          type: string
+          enum:
+            - is_remaining
+            - category_id
+        required: false
+      - in: query
+        name: search
+        description: 検索対象のフィールド名
+        schema:
+          type: string
+          enum:
+            - public_item_name
+        required: false
     responses:
       "200":
         description: 備品一覧
