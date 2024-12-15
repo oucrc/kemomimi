@@ -11,8 +11,8 @@ Category:
   $ref: "./category.yaml"
 # ProductCategory:
 
-# User:
-
+User:
+  $ref: "./user.yaml"
 # MainUserPublicItem:
 
 # PurchaseRequest:

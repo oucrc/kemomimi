@@ -6,7 +6,7 @@ properties:
   name:
     type: string
     description: 備品名
-  product_id:
+  product:
     $ref: "./product.yaml"
     description: 製品
   cost:
