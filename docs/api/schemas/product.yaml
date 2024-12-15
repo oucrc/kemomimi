@@ -12,6 +12,9 @@ properties:
   product_url:
     type: string
     description: 商品のURL
+  categiries:
+    type: object
+    $ref: "./category.yaml"
   remarks:
     type: string
     description: 備考欄
