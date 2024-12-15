@@ -1,7 +1,7 @@
 public_items:
   get:
     tags:
-      - public items
+      - PublicItems
     summary: 備品一覧取得
     responses:
       "200":
@@ -14,7 +14,7 @@ public_items:
                 $ref: "../schemas/public_item.yaml"
   post:
     tags:
-      - public items
+      - PublicItems
     summary: 備品新規登録
     requestBody:
       required: true
@@ -35,7 +35,7 @@ public_items:
 public_items-{public_item_id}:
   get:
     tags:
-      - public items
+      - PublicItems
     summary: 備品情報取得
     parameters:
       - in: path
@@ -55,7 +55,7 @@ public_items-{public_item_id}:
         description: 備品が見つかりません
   put:
     tags:
-      - public items
+      - PublicItems
     summary: 備品情報更新
     parameters:
       - in: path
@@ -83,7 +83,7 @@ public_items-{public_item_id}:
         description: 備品が見つかりません
   delete:
     tags:
-      - public items
+      - PublicItems
     summary: 備品削除
     parameters:
       - in: path

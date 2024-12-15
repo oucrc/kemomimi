@@ -29,13 +29,13 @@ tags:
     description: 認証
 
 paths:
-  /public_items:
+  /public-items:
     $ref: "./paths/public_items.yaml#/public_items"
-  /public_items/{public_item_id}:
+  /public-items/{public-item-id}:
     $ref: "./paths/public_items.yaml#/public_items-{public_item_id}"
-  /private_items:
+  /private-items:
     $ref: "./paths/private_items.yaml#/private_items"
-  /private_items/{private_item_id}:
+  /private-items/{private-item-id}:
     $ref: "./paths/private_items.yaml#/private_items-{private_item_id}"
 components:
   schemas:
