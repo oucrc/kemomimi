@@ -7,7 +7,7 @@ properties:
     type: string
     description: 備品名
   product_id:
-    type: string
+    $ref: "./product.yaml"
     description: 製品のユニークID
   cost:
     type: integer
