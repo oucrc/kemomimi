@@ -47,6 +47,10 @@ paths:
     $ref: "./paths/categories.yaml#/categories"
   /categories/{category-id}:
     $ref: "./paths/categories.yaml#/categories-{category_id}"
+  /users:
+    $ref: "./paths/users.yaml#/users"
+  /users-{user_id}:
+    $ref: "./paths/users.yaml#/users-{user_id}"
 components:
   schemas:
     $ref: "./schemas/index.yaml"
