@@ -7,10 +7,9 @@ properties:
     type: string
     description: 備品名
   categories:
-    type: array
-    items:
-      $ref: "./category.yaml"
-    description: カテゴリ
+    type: object
+    $ref: "./category.yaml"
+    description: カテゴリ(1つ)
   cost:
     type: integer
     description: 備品の購入コスト
@@ -26,10 +25,9 @@ properties:
     type: boolean
     description: 現存しているか
   main_users:
-    type: array
-    items:
-      $ref: "./user.yaml"
-    description: 主要な利用者
+    type: object
+    $ref: "./user.yaml"
+    description: 主要な利用者(1人)
   remarks:
     type: string
     description: 備考欄
