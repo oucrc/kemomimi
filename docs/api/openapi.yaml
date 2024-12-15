@@ -4,6 +4,8 @@ info:
   version: v1
   description: 備品管理システムのREST API仕様書です。
 
+# TODO operationIdの付与
+
 tags:
   - name: PublicItems
     description: 備品
