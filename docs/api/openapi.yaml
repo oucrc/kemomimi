@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: KEMOMIMI API
-  version: v1
+  version: v0.2
   description: 備品管理システムのREST API仕様書です。
 
 # TODO operationIdの付与
@@ -43,6 +43,10 @@ paths:
     $ref: "./paths/products.yaml#/products"
   /products/{product-id}:
     $ref: "./paths/products.yaml#/products-{product_id}"
+  /categories:
+    $ref: "./paths/categories.yaml#/categories"
+  /categories/{category-id}:
+    $ref: "./paths/categories.yaml#/categories-{category_id}"
 components:
   schemas:
     $ref: "./schemas/index.yaml"

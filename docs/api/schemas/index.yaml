@@ -7,8 +7,8 @@ PrivateItem:
 # Product:
 Product:
   $ref: "./product.yaml"
-# Category:
-
+Category:
+  $ref: "./category.yaml"
 # ProductCategory:
 
 # User:
