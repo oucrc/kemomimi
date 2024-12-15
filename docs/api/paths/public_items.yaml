@@ -50,7 +50,7 @@ public_items:
       content:
         application/json:
           schema:
-            $ref: "../schemas/public_item_details.yaml"
+            $ref: "../schemas/public_item_entry.yaml"
     responses:
       "201":
         description: 備品登録成功

@@ -1,7 +1,10 @@
-PublicItem:
-  $ref: "./public_item.yaml"
+# アルファベット順に(ファイルの順にしたい)
 PublicItemDetails:
   $ref: "./public_item_details.yaml"
+PublicItemEntry:
+  $ref: "./public_item_entry.yaml"
+PublicItem:
+  $ref: "./public_item.yaml"
 PrivateItem:
   $ref: "./private_item.yaml"
 # PostGradTreat
