@@ -6,18 +6,16 @@ properties:
   name:
     type: string
     description: 備品名
-  categories:
-    type: array
-    items:
-      $ref: "./category.yaml"
-    description: カテゴリ
+  product:
+    $ref: "./product.yaml"
+    description: 製品
   cost:
     type: integer
     description: 備品の購入コスト
-  approval_date:
+  purchase_date:
     type: string
     format: date
-    description: 承認日
+    description: 導入日
   expiration_date:
     type: string
     format: date
@@ -25,11 +23,9 @@ properties:
   is_remaining:
     type: boolean
     description: 現存しているか
-  main_users:
-    type: array
-    items:
-      $ref: "./user.yaml"
-    description: 主要な利用者
+  purchase_request_id:
+    type: string
+    description: 追加元の購入申請ID
   remarks:
     type: string
     description: 備考欄

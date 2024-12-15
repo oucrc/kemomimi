@@ -1,5 +1,7 @@
 PublicItem:
   $ref: "./public_item.yaml"
+PublicItemDetails:
+  $ref: "./public_item_details.yaml"
 PrivateItem:
   $ref: "./private_item.yaml"
 # PostGradTreat

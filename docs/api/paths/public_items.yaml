@@ -12,9 +12,8 @@ public_items:
           enum:
             - public_item_id
             - cost
-            - purchase_date
+            - approval_date
             - expiration_date
-            - purchase_request_id
         required: false
       - in: query
         name: filter
@@ -51,14 +50,14 @@ public_items:
       content:
         application/json:
           schema:
-            $ref: "../schemas/public_item.yaml"
+            $ref: "../schemas/public_item_details.yaml"
     responses:
       "201":
         description: 備品登録成功
         content:
           application/json:
             schema:
-              $ref: "../schemas/public_item.yaml"
+              $ref: "../schemas/public_item_details.yaml"
       "400":
         description: 必須項目の入力漏れなど
 
@@ -80,7 +79,7 @@ public_items-{public_item_id}:
         content:
           application/json:
             schema:
-              $ref: "../schemas/public_item.yaml"
+              $ref: "../schemas/public_item_details.yaml"
       "404":
         description: 備品が見つかりません
   put:
@@ -99,14 +98,14 @@ public_items-{public_item_id}:
       content:
         application/json:
           schema:
-            $ref: "../schemas/public_item.yaml"
+            $ref: "../schemas/public_item_details.yaml"
     responses:
       "200":
         description: 備品情報更新成功
         content:
           application/json:
             schema:
-              $ref: "../schemas/public_item.yaml"
+              $ref: "../schemas/public_item_details.yaml"
       "400":
         description: 必須項目の入力漏れなど
       "404":
