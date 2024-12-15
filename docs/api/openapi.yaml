@@ -37,6 +37,10 @@ paths:
     $ref: "./paths/private_items.yaml#/private_items"
   /private-items/{private-item-id}:
     $ref: "./paths/private_items.yaml#/private_items-{private_item_id}"
+  /products:
+    $ref: "./paths/products.yaml#/products"
+  /products/{product-id}:
+    $ref: "./paths/products.yaml#/products-{product_id}"
 components:
   schemas:
     $ref: "./schemas/index.yaml"

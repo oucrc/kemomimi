@@ -5,7 +5,8 @@ PrivateItem:
 # PostGradTreat
 
 # Product:
-
+Product:
+  $ref: "./product.yaml"
 # Category:
 
 # ProductCategory:
