@@ -1,0 +1,35 @@
+type: object
+properties:
+  public_item_id:
+    type: string
+    description: 備品のユニークID
+  name:
+    type: string
+    description: 備品名
+  categories:
+    type: object
+    $ref: "./category.yaml"
+    description: カテゴリ(1つ)
+  cost:
+    type: integer
+    description: 備品の購入コスト
+  approval_date:
+    type: string
+    format: date
+    description: 承認日
+  expiration_date:
+    type: string
+    format: date
+    description: 耐用期限
+  is_remaining:
+    type: boolean
+    description: 現存しているか
+  main_users:
+    type: object
+    $ref: "./user.yaml"
+    description: 主要な利用者(1人)
+  remarks:
+    type: string
+    description: 備考欄
+required:
+  - public_item_id

@@ -1,0 +1,28 @@
+type: object
+properties:
+  name:
+    type: string
+    description: 備品名
+  cost:
+    type: integer
+    description: 備品の購入コスト(NULLなら申請から)
+  purchase_date:
+    type: string
+    format: date
+    description: 導入日(NULLなら現時刻)
+  expiration_date:
+    type: string
+    format: date
+    description: 耐用期限
+  is_remaining:
+    type: boolean
+    description: 現存しているか(NULLなら現存)
+  purchase_request_id:
+    type: string
+    description: 追加元の購入申請ID
+  remarks:
+    type: string
+    description: 備考欄
+required:
+  - name
+  - purchase_request_id

@@ -1,0 +1,31 @@
+type: object
+properties:
+  user_id:
+    type: string
+    description: ユーザーのユニークID
+  handle_name:
+    type: string
+    description: ユーザーのハンドルネーム
+  screen_name:
+    type: string
+    description: ユーザーのスクリーンネーム
+  slack_id:
+    type: string
+    description: ユーザーのSlack ID
+  is_admin:
+    type: boolean
+    description: 管理者フラグ
+  is_member:
+    type: boolean
+    description: 在籍状況
+  graduation_date:
+    type: string
+    format: date
+    description: 卒業日
+  remarks:
+    type: string
+    description: 備考欄
+required:
+  - user_id
+  - handle_name
+  - screen_name

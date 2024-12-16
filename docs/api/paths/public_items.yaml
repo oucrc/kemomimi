@@ -1,0 +1,128 @@
+public_items:
+  get:
+    tags:
+      - PublicItems
+    summary: 備品一覧取得
+    parameters:
+      - in: query
+        name: sort
+        description: ソート対象のフィールド名
+        schema:
+          type: string
+          enum:
+            - public_item_id
+            - cost
+            - approval_date
+            - expiration_date
+        required: false
+      - in: query
+        name: filter
+        description: フィルター対象のフィールド名
+        schema:
+          type: string
+          enum:
+            - is_remaining
+            - category_id
+        required: false
+      - in: query
+        name: search
+        description: 検索対象のフィールド名
+        schema:
+          type: string
+          enum:
+            - public_item_name
+        required: false
+    responses:
+      "200":
+        description: 備品一覧
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "../schemas/public_item.yaml"
+  post:
+    tags:
+      - PublicItems
+    summary: 備品新規登録
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/public_item_entry.yaml"
+    responses:
+      "201":
+        description: 備品登録成功
+        content:
+          application/json:
+            schema:
+              $ref: "../schemas/public_item_details.yaml"
+      "400":
+        description: 必須項目の入力漏れなど
+
+public_items-{public_item_id}:
+  get:
+    tags:
+      - PublicItems
+    summary: 備品情報取得
+    parameters:
+      - in: path
+        name: public_item_id
+        schema:
+          type: string
+        required: true
+        description: 備品のID
+    responses:
+      "200":
+        description: 備品情報
+        content:
+          application/json:
+            schema:
+              $ref: "../schemas/public_item_details.yaml"
+      "404":
+        description: 備品が見つかりません
+  put:
+    tags:
+      - PublicItems
+    summary: 備品情報更新
+    parameters:
+      - in: path
+        name: public_item_id
+        schema:
+          type: string
+        required: true
+        description: 備品のID
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/public_item_details.yaml"
+    responses:
+      "200":
+        description: 備品情報更新成功
+        content:
+          application/json:
+            schema:
+              $ref: "../schemas/public_item_details.yaml"
+      "400":
+        description: 必須項目の入力漏れなど
+      "404":
+        description: 備品が見つかりません
+  delete:
+    tags:
+      - PublicItems
+    summary: 備品削除
+    parameters:
+      - in: path
+        name: public_item_id
+        schema:
+          type: string
+        required: true
+        description: 備品のID
+    responses:
+      "204":
+        description: 備品削除成功
+      "404":
+        description: 備品が見つかりません

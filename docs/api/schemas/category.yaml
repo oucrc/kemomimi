@@ -1,0 +1,14 @@
+type: object
+properties:
+  category_id:
+    type: string
+    description: カテゴリのユニークID
+  name:
+    type: string
+    description: カテゴリ名
+  remarks:
+    type: string
+    description: 備考欄
+required:
+  - category_id
+  - name

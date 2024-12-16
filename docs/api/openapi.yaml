@@ -1,0 +1,56 @@
+openapi: 3.0.3
+info:
+  title: KEMOMIMI API
+  version: v0.2
+  description: 備品管理システムのREST API仕様書です。
+
+# TODO operationIdの付与
+
+tags:
+  - name: PublicItems
+    description: 備品
+  - name: PublicItems-MainUser
+    description: 備品ユーザー
+  - name: PrivateItems
+    description: 私物
+  - name: PostGradTreat
+    description: 卒業後の私物の処理
+  - name: Products
+    description: 製品
+  - name: Categories
+    description: 分類
+  - name: Products-Categories
+    description: 製品分類
+  - name: PurchaseRequests
+    description: 購入申請
+  - name: PurchaseRequestsStatus
+    description: 購入申請状態
+  - name: Users
+    description: 部員
+  - name: Auth
+    description: 認証
+
+paths:
+  /public-items:
+    $ref: "./paths/public_items.yaml#/public_items"
+  /public-items/{public-item-id}:
+    $ref: "./paths/public_items.yaml#/public_items-{public_item_id}"
+  /private-items:
+    $ref: "./paths/private_items.yaml#/private_items"
+  /private-items/{private-item-id}:
+    $ref: "./paths/private_items.yaml#/private_items-{private_item_id}"
+  /products:
+    $ref: "./paths/products.yaml#/products"
+  /products/{product-id}:
+    $ref: "./paths/products.yaml#/products-{product_id}"
+  /categories:
+    $ref: "./paths/categories.yaml#/categories"
+  /categories/{category-id}:
+    $ref: "./paths/categories.yaml#/categories-{category_id}"
+  /users:
+    $ref: "./paths/users.yaml#/users"
+  /users-{user_id}:
+    $ref: "./paths/users.yaml#/users-{user_id}"
+components:
+  schemas:
+    $ref: "./schemas/index.yaml"
