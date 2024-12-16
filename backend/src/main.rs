@@ -5,7 +5,7 @@ use axum::{
     Json, Router,
 };
 use serde::{Deserialize, Serialize};
-use sqlx::SqlitePool;
+use sqlx::{PgPool, Postgres};
 use std::sync::Arc;
 use std::{collections::HashMap, env};
 
@@ -17,7 +17,7 @@ async fn main() {
     tracing_subscriber::fmt::init();
 
     // TODO postgresへの移行
-    let pool = Arc::new(SqlitePool::connect(&database_url).await.unwrap());
+    let pool = Arc::new(PgPool::connect(&database_url).await.unwrap());
     // build our application with a route
     let app = Router::new().with_state(pool.clone());
 
