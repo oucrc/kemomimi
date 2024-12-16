@@ -8,4 +8,4 @@ DROP TABLE category;
 DROP TABLE public_item;
 
 -- 製品テーブル（product）削除
-DROP TABLE product;　
+DROP TABLE product;
