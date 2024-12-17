@@ -18,7 +18,6 @@ CREATE TABLE
         purchase_date DATE NOT NULL, -- 導入日
         expiration_date DATE CHECK (expiration_date > purchase_date), -- 耐用期限
         is_remaining BOOLEAN DEFAULT TRUE NOT NULL, -- 現存状態（廃棄済みなど）
-        purchase_request_id TEXT, -- 購入申請ID（Foreign Key）
         remarks TEXT -- 備考
     );
 
