@@ -33,3 +33,5 @@ properties:
     description: 備考欄
 required:
   - public_item_id
+  - name
+  - is_remaining
