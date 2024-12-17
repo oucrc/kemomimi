@@ -13,7 +13,7 @@ CREATE TABLE
     public_item (
         public_item_id TEXT PRIMARY KEY, -- 備品のユニークID
         name TEXT NOT NULL, -- 備品名
-        product_id TEXT REFERENCES product (product_id), -- 製品のユニークID（Foreign Key）
+        product_id TEXT NOT NULL REFERENCES product (product_id), -- 製品のユニークID（Foreign Key）
         cost INT CHECK (cost >= 0), -- 購入コスト
         purchase_date DATE NOT NULL, -- 導入日
         expiration_date DATE CHECK (expiration_date > purchase_date), -- 耐用期限

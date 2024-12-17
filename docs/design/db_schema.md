@@ -12,7 +12,7 @@
 | --------------------- | -------- | ----------------------------------- | ------------------------------------------------------------------- |
 | `public_item_id`      | TEXT     | PRIMARY KEY                         | 備品のユニークID                                                    |
 | `name`                | TEXT     | NOT NULL                            | 備品名(製品名と別なのは、PC愛称などを入れる想定)                    |
-| `product_id`          | TEXT     | FOREIGN KEY                         | 製品のユニークID                                                    |
+| `product_id`          | TEXT     | FOREIGN KEY, NOT NULL               | 製品のユニークID                                                    |
 | `cost`                | INT      | `cost`>=0                           | 備品の購入コスト                                                    |
 | `purchase_date`       | DATE     | NOT NULL                            | 導入日                                                              |
 | `expiration_date`     | DATE     | `expiration_date` > `purchase_date` | 耐用期限                                                            |
@@ -121,11 +121,11 @@
 
 ### 属性
 
-| 名前             | データ型                      | 制約        | 説明                                       |
-| ---------------- | ----------------------------- | ----------- | ------------------------------------------ |
-| `public_item_id` | TEXT                          | FOREIGN KEY | 備品のID (`PublicItem` への外部キー)       |
-| `user_id`        | TEXT                          | FOREIGN KEY | メインユーザーのID (`User` への外部キー)   |
-| PRIMARY KEY      | (`public_item_id`, `user_id`) |             | -                                          |
+| 名前             | データ型                      | 制約        | 説明                                     |
+| ---------------- | ----------------------------- | ----------- | ---------------------------------------- |
+| `public_item_id` | TEXT                          | FOREIGN KEY | 備品のID (`PublicItem` への外部キー)     |
+| `user_id`        | TEXT                          | FOREIGN KEY | メインユーザーのID (`User` への外部キー) |
+| PRIMARY KEY      | (`public_item_id`, `user_id`) |             | -                                        |
 
 
 ## 購入申請 (PurchaseRequest)
