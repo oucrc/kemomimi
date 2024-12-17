@@ -12,7 +12,7 @@
 | --------------------- | -------- | ----------------------------------- | ------------------------------------------------------------------- |
 | `public_item_id`      | TEXT     | PRIMARY KEY                         | 備品のユニークID                                                    |
 | `name`                | TEXT     | NOT NULL                            | 備品名(製品名と別なのは、PC愛称などを入れる想定)                    |
-| `product_id`          | TEXT     | FOREIGN KEY, NOT NULL               | 製品のユニークID                                                    |
+| `product_id`          | TEXT     | FOREIGN KEY, NOT NULL               | 製品のユニークID(Productへの外部キー)                               |
 | `cost`                | INT      | `cost`>=0                           | 備品の購入コスト                                                    |
 | `purchase_date`       | DATE     | NOT NULL                            | 導入日                                                              |
 | `expiration_date`     | DATE     | `expiration_date` > `purchase_date` | 耐用期限                                                            |
