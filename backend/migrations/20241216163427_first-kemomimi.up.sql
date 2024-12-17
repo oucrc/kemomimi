@@ -18,7 +18,7 @@ CREATE TABLE
         purchase_date DATE NOT NULL, -- 導入日
         expiration_date DATE CHECK (expiration_date > purchase_date), -- 耐用期限
         is_remaining BOOLEAN DEFAULT TRUE NOT NULL, -- 現存状態（廃棄済みなど）
-        purchase_request_id TEXT, -- 購入申請ID（Foreign Key）
+        purchase_request_id TEXT, -- 購入申請ID（Foreign Key、購入申請テーブル追加時に制約追加）
         remarks TEXT, -- 備考
         FOREIGN KEY (product_id) REFERENCES product (product_id) -- 製品IDへの外部キー
     );
