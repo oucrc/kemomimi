@@ -13,14 +13,13 @@ CREATE TABLE
     public_item (
         public_item_id TEXT PRIMARY KEY, -- 備品のユニークID
         name TEXT NOT NULL, -- 備品名
-        product_id TEXT, -- 製品のユニークID（Foreign Key）
+        product_id TEXT REFERENCES product (product_id), -- 製品のユニークID（Foreign Key）
         cost INT CHECK (cost >= 0), -- 購入コスト
         purchase_date DATE NOT NULL, -- 導入日
         expiration_date DATE CHECK (expiration_date > purchase_date), -- 耐用期限
         is_remaining BOOLEAN DEFAULT TRUE NOT NULL, -- 現存状態（廃棄済みなど）
-        purchase_request_id TEXT, -- 購入申請ID（Foreign Key、購入申請テーブル追加時に制約追加）
-        remarks TEXT, -- 備考
-        FOREIGN KEY (product_id) REFERENCES product (product_id) -- 製品IDへの外部キー
+        purchase_request_id TEXT, -- 購入申請ID（Foreign Key）
+        remarks TEXT -- 備考
     );
 
 -- 分類テーブル（category）作成
@@ -34,9 +33,7 @@ CREATE TABLE
 -- 製品-カテゴリ関係テーブル（product_category）作成
 CREATE TABLE
     product_category (
-        product_id TEXT, -- 製品のID（productへのForeign Key）
-        category_id TEXT, -- カテゴリのID（categoryへのForeign Key）
-        PRIMARY KEY (product_id, category_id), -- 複合主キー
-        FOREIGN KEY (product_id) REFERENCES product (product_id), -- 製品IDへの外部キー
-        FOREIGN KEY (category_id) REFERENCES category (category_id) -- カテゴリIDへの外部キー
+        product_id TEXT REFERENCES product (product_id), -- 製品のID（productへのForeign Key）
+        category_id TEXT REFERENCES category (category_id), -- カテゴリのID（categoryへのForeign Key）
+        PRIMARY KEY (product_id, category_id) -- 複合主キー
     );
