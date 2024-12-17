@@ -10,9 +10,9 @@
 
 | 名前                  | データ型 | 制約                                | 説明                                                                |
 | --------------------- | -------- | ----------------------------------- | ------------------------------------------------------------------- |
-| `public_item_id`      | TEXT     | PRIMARY KEY                         | 備品のユニークID                                                    |
+| `public_item_id`      | UUID     | PRIMARY KEY                         | 備品のユニークID                                                    |
 | `name`                | TEXT     | NOT NULL                            | 備品名(製品名と別なのは、PC愛称などを入れる想定)                    |
-| `product_id`          | TEXT     | FOREIGN KEY, NOT NULL               | 製品のユニークID(Productへの外部キー)                               |
+| `product_id`          | UUID     | FOREIGN KEY, NOT NULL               | 製品のユニークID(Productへの外部キー)                               |
 | `cost`                | INT      | `cost`>=0                           | 備品の購入コスト                                                    |
 | `purchase_date`       | DATE     | NOT NULL                            | 導入日                                                              |
 | `expiration_date`     | DATE     | `expiration_date` > `purchase_date` | 耐用期限                                                            |
@@ -30,9 +30,9 @@
 
 | 名前                 | データ型 | 制約                   | 説明                                        |
 | -------------------- | -------- | ---------------------- | ------------------------------------------- |
-| `private_item_id`    | TEXT     | PRIMARY KEY            | 私物のユニークID                            |
+| `private_item_id`    | UUID     | PRIMARY KEY            | 私物のユニークID                            |
 | `name`               | TEXT     | NOT NULL               | 製品名                                      |
-| `owner_id`           | TEXT     | FOREIGN KEY            | 所有者（Userへの外部キー）                  |
+| `owner_id`           | UUID     | FOREIGN KEY            | 所有者（Userへの外部キー）                  |
 | `post_grad_treat_id` | TEXT     | FOREIGN KEY            | 卒業後の処理（PostGradTreatへの外部キー）   |
 | `model_number`       | TEXT     |                        | 型番                                        |
 | `is_remaining`       | BOOLEAN  | DEFAULT TRUE, NOT NULL | 現存しているか(廃棄済みや失効済みならFALSE) |
@@ -59,7 +59,7 @@
 
 | 名前           | データ型 | 制約        | 説明             |
 | -------------- | -------- | ----------- | ---------------- |
-| `product_id`   | TEXT     | PRIMARY KEY | 製品のユニークID |
+| `product_id`   | UUID     | PRIMARY KEY | 製品のユニークID |
 | `name`         | TEXT     | NOT NULL    | 製品名           |
 | `model_number` | TEXT     |             | 型番             |
 | `product_url`  | TEXT     |             | 商品のURL        |
@@ -89,7 +89,7 @@
 
 | 名前          | データ型                      | 制約        | 説明                                 |
 | ------------- | ----------------------------- | ----------- | ------------------------------------ |
-| `product_id`  | TEXT                          | FOREIGN KEY | 製品のID（Productへの外部キー）      |
+| `product_id`  | UUID                          | FOREIGN KEY | 製品のID（Productへの外部キー）      |
 | `category_id` | TEXT                          | FOREIGN KEY | カテゴリのID（Categoryへの外部キー） |
 | PRIMARY KEY   | (`product_id`, `category_id`) |             |
 
@@ -103,7 +103,7 @@
 
 | 名前              | データ型 | 制約                    | 説明                             |
 | ----------------- | -------- | ----------------------- | -------------------------------- |
-| `user_id`         | TEXT     | PRIMARY KEY             | ユーザーのユニークID             |
+| `user_id`         | UUID     | PRIMARY KEY             | ユーザーのユニークID             |
 | `handle_name`     | TEXT     | NOT NULL                | ユーザーのハンドルネーム         |
 | `screen_name`     | TEXT     | UNIQUE, NOT NULL        | ユーザーのスクリーンネーム       |
 | `slack_id`        | TEXT     | UNIQUE                  | ユーザーのSlack ID(通知等に使用) |
@@ -123,8 +123,8 @@
 
 | 名前             | データ型                      | 制約        | 説明                                     |
 | ---------------- | ----------------------------- | ----------- | ---------------------------------------- |
-| `public_item_id` | TEXT                          | FOREIGN KEY | 備品のID (`PublicItem` への外部キー)     |
-| `user_id`        | TEXT                          | FOREIGN KEY | メインユーザーのID (`User` への外部キー) |
+| `public_item_id` | UUID                          | FOREIGN KEY | 備品のID (`PublicItem` への外部キー)     |
+| `user_id`        | UUID                          | FOREIGN KEY | メインユーザーのID (`User` への外部キー) |
 | PRIMARY KEY      | (`public_item_id`, `user_id`) |             | -                                        |
 
 
@@ -138,9 +138,9 @@
 
 | 名前                  | データ型 | 制約                 | 説明                                                                        |
 | --------------------- | -------- | -------------------- | --------------------------------------------------------------------------- |
-| `purchase_request_id` | TEXT     | PRIMARY KEY          | 申請のユニークID                                                            |
-| `applicant_id`        | TEXT     | FOREIGN KEY          | 申請者のID（Userへの外部キー）                                              |
-| `product_id`          | TEXT     | FOREIGN KEY          | 申請する製品のID                                                            |
+| `purchase_request_id` | UUID     | PRIMARY KEY          | 申請のユニークID                                                            |
+| `applicant_id`        | UUID     | FOREIGN KEY          | 申請者のID（Userへの外部キー）                                              |
+| `product_id`          | UUID     | FOREIGN KEY          | 申請する製品のID                                                            |
 | `cost`                | INT      | COST>=0              | 申請時の想定費用                                                            |
 | `status_id`           | TEXT     | FOREIGN KEY          | 購入申請状態ID（Statusへの外部キー、pending(保留)やapproved(承認済み)など） |
 | `request_date`        | DATE     | DEFAULT CURRENT_DATE | 申請作成日                                                                  |

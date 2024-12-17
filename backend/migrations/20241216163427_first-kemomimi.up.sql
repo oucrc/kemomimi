@@ -1,7 +1,7 @@
 -- 製品テーブル（product）作成
 CREATE TABLE
     product (
-        product_id TEXT PRIMARY KEY, -- 製品のユニークID
+        product_id UUID PRIMARY KEY, -- 製品のユニークID
         name TEXT NOT NULL, -- 製品名
         model_number TEXT, -- 型番
         product_url TEXT, -- 商品URL
@@ -11,9 +11,9 @@ CREATE TABLE
 -- 備品テーブル（public_item）作成
 CREATE TABLE
     public_item (
-        public_item_id TEXT PRIMARY KEY, -- 備品のユニークID
+        public_item_id UUID PRIMARY KEY, -- 備品のユニークID
         name TEXT NOT NULL, -- 備品名
-        product_id TEXT NOT NULL REFERENCES product (product_id), -- 製品のユニークID（Foreign Key）
+        product_id UUID NOT NULL REFERENCES product (product_id), -- 製品のユニークID（Foreign Key）
         cost INT CHECK (cost >= 0), -- 購入コスト
         purchase_date DATE NOT NULL, -- 導入日
         expiration_date DATE CHECK (expiration_date > purchase_date), -- 耐用期限
@@ -33,7 +33,7 @@ CREATE TABLE
 -- 製品-カテゴリ関係テーブル（product_category）作成
 CREATE TABLE
     product_category (
-        product_id TEXT REFERENCES product (product_id), -- 製品のID（productへのForeign Key）
+        product_id UUID REFERENCES product (product_id), -- 製品のID（productへのForeign Key）
         category_id TEXT REFERENCES category (category_id), -- カテゴリのID（categoryへのForeign Key）
         PRIMARY KEY (product_id, category_id) -- 複合主キー
     );
