@@ -777,9 +777,9 @@ pub struct PublicItem {
     #[serde(rename = "name")]
     pub name: String,
 
-    #[serde(rename = "categories")]
+    #[serde(rename = "category")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub categories: Option<models::Category>,
+    pub category: Option<models::Category>,
 
 /// 備品の購入コスト
     #[serde(rename = "cost")]
@@ -800,9 +800,9 @@ pub struct PublicItem {
     #[serde(rename = "is_remaining")]
     pub is_remaining: bool,
 
-    #[serde(rename = "main_users")]
+    #[serde(rename = "main_user")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub main_users: Option<models::User>,
+    pub main_user: Option<models::User>,
 
 /// 備考欄
     #[serde(rename = "remarks")]
@@ -818,12 +818,12 @@ impl PublicItem {
         PublicItem {
             public_item_id,
             name,
-            categories: None,
+            category: None,
             cost: None,
             approval_date: None,
             expiration_date: None,
             is_remaining,
-            main_users: None,
+            main_user: None,
             remarks: None,
         }
     }
@@ -843,7 +843,7 @@ impl std::fmt::Display for PublicItem {
             Some("name".to_string()),
             Some(self.name.to_string()),
 
-            // Skipping categories in query parameter serialization
+            // Skipping category in query parameter serialization
 
 
             self.cost.as_ref().map(|cost| {
@@ -861,7 +861,7 @@ impl std::fmt::Display for PublicItem {
             Some("is_remaining".to_string()),
             Some(self.is_remaining.to_string()),
 
-            // Skipping main_users in query parameter serialization
+            // Skipping main_user in query parameter serialization
 
 
             self.remarks.as_ref().map(|remarks| {
@@ -890,12 +890,12 @@ impl std::str::FromStr for PublicItem {
         struct IntermediateRep {
             pub public_item_id: Vec<String>,
             pub name: Vec<String>,
-            pub categories: Vec<models::Category>,
+            pub category: Vec<models::Category>,
             pub cost: Vec<i32>,
             pub approval_date: Vec<chrono::naive::NaiveDate>,
             pub expiration_date: Vec<chrono::naive::NaiveDate>,
             pub is_remaining: Vec<bool>,
-            pub main_users: Vec<models::User>,
+            pub main_user: Vec<models::User>,
             pub remarks: Vec<String>,
         }
 
@@ -919,7 +919,7 @@ impl std::str::FromStr for PublicItem {
                     #[allow(clippy::redundant_clone)]
                     "name" => intermediate_rep.name.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
-                    "categories" => intermediate_rep.categories.push(<models::Category as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
+                    "category" => intermediate_rep.category.push(<models::Category as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
                     "cost" => intermediate_rep.cost.push(<i32 as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
@@ -929,7 +929,7 @@ impl std::str::FromStr for PublicItem {
                     #[allow(clippy::redundant_clone)]
                     "is_remaining" => intermediate_rep.is_remaining.push(<bool as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
-                    "main_users" => intermediate_rep.main_users.push(<models::User as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
+                    "main_user" => intermediate_rep.main_user.push(<models::User as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
                     "remarks" => intermediate_rep.remarks.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     _ => return std::result::Result::Err("Unexpected key while parsing PublicItem".to_string())
@@ -944,12 +944,12 @@ impl std::str::FromStr for PublicItem {
         std::result::Result::Ok(PublicItem {
             public_item_id: intermediate_rep.public_item_id.into_iter().next().ok_or_else(|| "public_item_id missing in PublicItem".to_string())?,
             name: intermediate_rep.name.into_iter().next().ok_or_else(|| "name missing in PublicItem".to_string())?,
-            categories: intermediate_rep.categories.into_iter().next(),
+            category: intermediate_rep.category.into_iter().next(),
             cost: intermediate_rep.cost.into_iter().next(),
             approval_date: intermediate_rep.approval_date.into_iter().next(),
             expiration_date: intermediate_rep.expiration_date.into_iter().next(),
             is_remaining: intermediate_rep.is_remaining.into_iter().next().ok_or_else(|| "is_remaining missing in PublicItem".to_string())?,
-            main_users: intermediate_rep.main_users.into_iter().next(),
+            main_user: intermediate_rep.main_user.into_iter().next(),
             remarks: intermediate_rep.remarks.into_iter().next(),
         })
     }

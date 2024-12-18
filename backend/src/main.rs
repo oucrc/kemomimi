@@ -98,12 +98,12 @@ impl PublicItems for ApiImpl {
             Ok(PublicItemsGetResponse::Status200(vec![PublicItem {
                 public_item_id: "idid".to_string(),
                 name: "KEMOMIMI".to_string(),
-                categories: None,
+                category: None,
                 cost: Some(1000),
                 approval_date: Some(Utc::now().naive_local().date()),
                 expiration_date: None,
                 is_remaining: true,
-                main_users: None,
+                main_user: None,
                 remarks: None,
             }]))
         })

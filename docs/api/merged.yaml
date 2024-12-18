@@ -3,6 +3,9 @@ info:
   title: KEMOMIMI API
   version: v0.2
   description: 備品管理システムのREST API仕様書です。
+servers:
+  - url: 'http://localhost:3000'
+    description: Development server
 tags:
   - name: PublicItems
     description: 備品
@@ -620,7 +623,7 @@ components:
         name:
           type: string
           description: 備品名
-        categories:
+        category:
           type: object
           $ref: '#/components/schemas/Category'
           description: カテゴリ(1つ)
@@ -638,7 +641,7 @@ components:
         is_remaining:
           type: boolean
           description: 現存しているか
-        main_users:
+        main_user:
           type: object
           $ref: '#/components/schemas/User'
           description: 主要な利用者(1人)
