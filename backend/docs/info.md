@@ -11,8 +11,8 @@
 コードを生成する
 `openapi-generator-cli generate -i "D:\dev\kemomimi\docs\api\merged.yaml" -g rust-axum -o "D:\dev\kemomimi\backend\openapi_gen"`
 
-htmlドキュメントを生成する
-`redoc-cli bundle "D:\dev\kemomimi\docs\api\openapi.yaml"`
+mdドキュメントを生成する
+`npx widdershins --omitHeader --code true merged.yaml openapi.md"`
 
 ## その他
 
