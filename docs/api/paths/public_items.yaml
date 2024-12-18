@@ -23,6 +23,7 @@ public_items:
           enum:
             - is_remaining
             - category_id
+            - user_id
         required: false
       - in: query
         name: search
