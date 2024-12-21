@@ -34,10 +34,8 @@ use std::env;
 use std::sync::Arc;
 use tower_http::cors::{Any, CorsLayer};
 
-#[derive(Clone)]
-struct ApiImpl {
-    db_pool: Arc<Pool<Postgres>>,
-}
+mod libs;
+use libs::ApiImpl;
 
 #[tokio::main]
 async fn main() {
