@@ -133,7 +133,6 @@ impl PublicItems for ApiImpl {
             INSERT INTO public_item (
                 public_item_id,
                 name,
-                // category_id,
                 cost,
                 purchase_date,
                 expiration_date,
@@ -147,8 +146,7 @@ impl PublicItems for ApiImpl {
                 $4,
                 $5,
                 $6,
-                $7,
-                $8
+                $7
             )
             RETURNING public_item_id;
         "#
