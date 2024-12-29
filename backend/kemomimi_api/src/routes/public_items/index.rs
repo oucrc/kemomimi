@@ -125,7 +125,29 @@ impl PublicItems for ApiImpl {
     where
         'life0: 'async_trait,
     {
-        todo!()
+        let query = r#"
+            INSERT INTO public_item (
+                public_item_id,
+                name,
+                category_id,
+                cost,
+                purchase_date,
+                expiration_date,
+                is_remaining,
+                remarks
+            )
+            VALUES (
+                gen_random_uuid_v7(),
+                $1,
+                $2,
+                $3,
+                $4,
+                $5,
+                $6,
+                $7
+            )
+            RETURNING public_item_id;
+        "#;
     }
 
     #[doc = " 備品削除."]
