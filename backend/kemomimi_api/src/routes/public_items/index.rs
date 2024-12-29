@@ -125,6 +125,8 @@ impl PublicItems for ApiImpl {
     where
         'life0: 'async_trait,
     {
+        let public_item_id = Uuid::now_v7();
+
         let query = r#"
             INSERT INTO public_item (
                 public_item_id,
@@ -137,14 +139,14 @@ impl PublicItems for ApiImpl {
                 remarks
             )
             VALUES (
-                gen_random_uuid_v7(),
                 $1,
                 $2,
                 $3,
                 $4,
                 $5,
                 $6,
-                $7
+                $7,
+                $8
             )
             RETURNING public_item_id;
         "#;
