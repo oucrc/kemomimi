@@ -127,11 +127,13 @@ impl PublicItems for ApiImpl {
     {
         let public_item_id = Uuid::now_v7();
 
-        let query = r#"
+        let public_item_id = query_as!(
+            Uuid,
+            r#"
             INSERT INTO public_item (
                 public_item_id,
                 name,
-                category_id,
+                // category_id,
                 cost,
                 purchase_date,
                 expiration_date,
@@ -149,7 +151,8 @@ impl PublicItems for ApiImpl {
                 $8
             )
             RETURNING public_item_id;
-        "#;
+        "#
+        );
     }
 
     #[doc = " 備品削除."]
