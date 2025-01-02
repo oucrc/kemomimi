@@ -149,7 +149,7 @@ impl PublicItems for ApiImpl {
                 $7
             )
             RETURNING public_item_id;
-        "#
+            "#
         );
     }
 
