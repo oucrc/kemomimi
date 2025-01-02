@@ -36,10 +36,10 @@
     border: 1px solid #ddd;
     padding: 8px;
     background-color: #f2f2f2;
-    text-align: left;
+    text-align: center;
 }
   
-  /* セル */
+/* セル */
 .public-items-table td {
     border: 1px solid #ddd;
     padding: 8px;
