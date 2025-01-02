@@ -78,7 +78,7 @@ impl PublicItems for ApiImpl {
             LEFT JOIN
                 product p ON pi.product_id = p.product_id
             LEFT JOIN
-                 product_category pc ON p.product_id = pc.product_id
+                product_category pc ON p.product_id = pc.product_id
             LEFT JOIN
                 category c ON pc.category_id = c.category_id
             "#
