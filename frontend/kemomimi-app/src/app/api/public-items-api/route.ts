@@ -13,7 +13,7 @@ export async function GET() {
       },
       approval_date: "2025-01-01",
       expiration_date: "2026-01-01",
-      is_remaining: true,
+      is_remaining: false,
       main_user: {
         user_id: "string",
         handle_name: "KEMO",
@@ -49,6 +49,30 @@ export async function GET() {
         remarks: "string"
       },
       remarks: "AHOKUSA",
+    },
+    {
+      public_item_id: "3",
+      name: "Table",
+      cost: 10000,
+      category: {
+        category_id: "2",
+        name: "Other",
+        remarks: "KAWAII"
+      },
+      approval_date: "2023-01-01",
+      expiration_date: "2024-01-01",
+      is_remaining: true,
+      main_user: {
+        user_id: "string",
+        handle_name: "SEIGETSU",
+        screen_name: "string",
+        slack_id: "string",
+        is_admin: true,
+        is_member: true,
+        graduation_date: "2019-08-24",
+        remarks: "string"
+      },
+      remarks: "",
     },
   ];
 
