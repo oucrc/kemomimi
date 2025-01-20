@@ -8,7 +8,7 @@ interface ItemTableProps {
 
 const ItemTable: React.FC<ItemTableProps> = ({ items }) => (
   <div className="overflow-x-auto">
-    <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
+    <table className="min-w-full bg-white border border-gray-200 rounded shadow-md">
       <thead className="bg-gray-100">
         <tr>
           <th className="px-4 py-3 text-center text-gray-700">Name</th>
